@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { Profile, Wallet, Category, Transaction, Budget } from '@/lib/types';
+import { Profile, Wallet, Category, Transaction, Budget, PlanType } from '@/lib/types';
 
 export interface TelegramUpdateRecord {
   update_id: number;

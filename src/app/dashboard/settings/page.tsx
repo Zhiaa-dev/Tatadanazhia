@@ -649,7 +649,7 @@ export default function SettingsPage() {
                 <div>
                   <div className="flex items-center gap-2">
                     <h3 className="font-bold text-slate-900 text-lg">Akses TataDana di Semua Jaringan</h3>
-                    <Badge variant="default" className="bg-emerald-50 text-emerald-700 border-emerald-200 text-[11px] font-bold">
+                    <Badge variant="green" className="bg-emerald-50 text-emerald-700 border-emerald-200 text-[11px] font-bold">
                       🟢 Online Global
                     </Badge>
                   </div>
@@ -722,7 +722,7 @@ export default function SettingsPage() {
                 </div>
 
                 <div className="space-y-1">
-                  <Badge variant="default" className="text-[10px] bg-slate-200/70 text-slate-700">
+                  <Badge variant="gray" className="text-[10px] bg-slate-200/70 text-slate-700">
                     {networkMode === 'public' ? 'Mode: Internet Publik (4G/5G/Wi-Fi Bebas)' : 'Mode: Wi-Fi Lokal'}
                   </Badge>
                   <p className="text-xs text-slate-500 max-w-xs">
