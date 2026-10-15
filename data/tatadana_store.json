@@ -1,0 +1,832 @@
+{
+  "profiles": [
+    {
+      "id": "usr_budi_01",
+      "full_name": "Budi Santoso",
+      "phone_number": "+6281234567890",
+      "phone_verified": true,
+      "telegram_chat_id": 123456,
+      "telegram_username": "TataDanaBot",
+      "telegram_bot_status": "connected",
+      "plan": "pro",
+      "default_currency": "IDR",
+      "default_wallet_id": "w_cash",
+      "is_admin": true,
+      "reminder_enabled": true,
+      "reminder_frequency": 1,
+      "reminder_time_1": "12:00:00",
+      "reminder_time_2": "20:00:00",
+      "monthly_transaction_count": 8,
+      "monthly_transaction_period": "2026-10-01",
+      "onboarding_completed": true,
+      "created_at": "2026-10-14T15:30:53.259Z",
+      "updated_at": "2026-10-15T04:02:18.551Z"
+    },
+    {
+      "id": "usr_1792063566123",
+      "full_name": "Dewi Sartika",
+      "email": "dewi.sartika@gmail.com",
+      "phone_number": "+6281299887766",
+      "phone_verified": true,
+      "telegram_chat_id": null,
+      "telegram_username": null,
+      "telegram_bot_status": "disconnected",
+      "plan": "starter",
+      "default_currency": "IDR",
+      "default_wallet_id": "w_cash_usr_1792063566123",
+      "is_admin": false,
+      "reminder_enabled": true,
+      "reminder_frequency": 1,
+      "reminder_time_1": "12:00:00",
+      "reminder_time_2": "20:00:00",
+      "monthly_transaction_count": 0,
+      "monthly_transaction_period": "2026-10-01",
+      "onboarding_completed": true,
+      "created_at": "2026-10-15T11:26:06.123Z",
+      "updated_at": "2026-10-15T11:26:06.123Z",
+      "last_login_at": "2026-10-15T11:26:06.123Z"
+    },
+    {
+      "id": "usr_1792063848805",
+      "full_name": "Wawan Raginang",
+      "email": "wawanragi@gmail.com",
+      "phone_number": "089712347654",
+      "phone_verified": true,
+      "telegram_chat_id": null,
+      "telegram_username": null,
+      "telegram_bot_status": "disconnected",
+      "plan": "starter",
+      "default_currency": "IDR",
+      "default_wallet_id": "w_cash_usr_1792063848805",
+      "is_admin": false,
+      "reminder_enabled": true,
+      "reminder_frequency": 1,
+      "reminder_time_1": "12:00:00",
+      "reminder_time_2": "20:00:00",
+      "monthly_transaction_count": 0,
+      "monthly_transaction_period": "2026-10-01",
+      "onboarding_completed": true,
+      "created_at": "2026-10-15T11:30:48.805Z",
+      "updated_at": "2026-10-15T11:30:48.805Z",
+      "last_login_at": "2026-10-15T11:30:48.805Z"
+    },
+    {
+      "id": "usr_1792064435398",
+      "full_name": "Aidaaaaaa cantikkk",
+      "email": "aidacantik@gmail.com",
+      "phone_number": "082145873698",
+      "phone_verified": true,
+      "telegram_chat_id": null,
+      "telegram_username": null,
+      "telegram_bot_status": "disconnected",
+      "plan": "starter",
+      "default_currency": "IDR",
+      "default_wallet_id": "w_cash_usr_1792064435398",
+      "is_admin": false,
+      "reminder_enabled": true,
+      "reminder_frequency": 1,
+      "reminder_time_1": "12:00:00",
+      "reminder_time_2": "20:00:00",
+      "monthly_transaction_count": 0,
+      "monthly_transaction_period": "2026-10-01",
+      "onboarding_completed": true,
+      "created_at": "2026-10-15T11:40:35.399Z",
+      "updated_at": "2026-10-15T11:40:35.399Z",
+      "last_login_at": "2026-10-15T11:40:35.399Z"
+    },
+    {
+      "id": "usr_1792064694735",
+      "full_name": "princes cantik",
+      "email": "princess1234@gmail.com",
+      "phone_number": "0123456789",
+      "phone_verified": true,
+      "telegram_chat_id": null,
+      "telegram_username": null,
+      "telegram_bot_status": "disconnected",
+      "plan": "starter",
+      "default_currency": "IDR",
+      "default_wallet_id": "w_cash_usr_1792064694735",
+      "is_admin": false,
+      "reminder_enabled": true,
+      "reminder_frequency": 1,
+      "reminder_time_1": "12:00:00",
+      "reminder_time_2": "20:00:00",
+      "monthly_transaction_count": 0,
+      "monthly_transaction_period": "2026-10-01",
+      "onboarding_completed": true,
+      "created_at": "2026-10-15T11:44:54.735Z",
+      "updated_at": "2026-10-15T11:44:54.735Z",
+      "last_login_at": "2026-10-15T11:44:54.735Z"
+    }
+  ],
+  "wallets": [
+    {
+      "id": "w_cash",
+      "user_id": "usr_budi_01",
+      "name": "Cash",
+      "balance": 1390000,
+      "color": "#F97316",
+      "icon": "wallet",
+      "is_default": true,
+      "created_at": "2026-10-14T15:30:53.259Z",
+      "updated_at": "2026-10-14T16:35:17.582Z"
+    },
+    {
+      "id": "w_bca",
+      "user_id": "usr_budi_01",
+      "name": "BCA",
+      "balance": 13750000,
+      "color": "#3B82F6",
+      "icon": "credit-card",
+      "is_default": false,
+      "created_at": "2026-10-14T15:30:53.259Z",
+      "updated_at": "2026-10-14T15:50:37.816Z"
+    },
+    {
+      "id": "w_gopay",
+      "user_id": "usr_budi_01",
+      "name": "GoPay",
+      "balance": 320000,
+      "color": "#10B981",
+      "icon": "smartphone",
+      "is_default": false,
+      "created_at": "2026-10-14T15:30:53.259Z",
+      "updated_at": "2026-10-14T15:30:53.259Z"
+    },
+    {
+      "id": "w_cash_usr_1792063566123",
+      "user_id": "usr_1792063566123",
+      "name": "Cash",
+      "balance": 1500000,
+      "color": "#F97316",
+      "icon": "wallet",
+      "is_default": true,
+      "created_at": "2026-10-15T11:26:06.123Z",
+      "updated_at": "2026-10-15T11:26:06.123Z"
+    },
+    {
+      "id": "w_bca_usr_1792063566123",
+      "user_id": "usr_1792063566123",
+      "name": "BCA",
+      "balance": 5000000,
+      "color": "#3B82F6",
+      "icon": "credit-card",
+      "is_default": false,
+      "created_at": "2026-10-15T11:26:06.123Z",
+      "updated_at": "2026-10-15T11:26:06.123Z"
+    },
+    {
+      "id": "w_gopay_usr_1792063566123",
+      "user_id": "usr_1792063566123",
+      "name": "GoPay",
+      "balance": 350000,
+      "color": "#10B981",
+      "icon": "smartphone",
+      "is_default": false,
+      "created_at": "2026-10-15T11:26:06.123Z",
+      "updated_at": "2026-10-15T11:26:06.123Z"
+    },
+    {
+      "id": "w_cash_usr_1792063848805",
+      "user_id": "usr_1792063848805",
+      "name": "Cash",
+      "balance": 1500000,
+      "color": "#F97316",
+      "icon": "wallet",
+      "is_default": true,
+      "created_at": "2026-10-15T11:30:48.805Z",
+      "updated_at": "2026-10-15T11:30:48.805Z"
+    },
+    {
+      "id": "w_bca_usr_1792063848805",
+      "user_id": "usr_1792063848805",
+      "name": "BCA",
+      "balance": 5000000,
+      "color": "#3B82F6",
+      "icon": "credit-card",
+      "is_default": false,
+      "created_at": "2026-10-15T11:30:48.805Z",
+      "updated_at": "2026-10-15T11:30:48.805Z"
+    },
+    {
+      "id": "w_gopay_usr_1792063848805",
+      "user_id": "usr_1792063848805",
+      "name": "GoPay",
+      "balance": 350000,
+      "color": "#10B981",
+      "icon": "smartphone",
+      "is_default": false,
+      "created_at": "2026-10-15T11:30:48.805Z",
+      "updated_at": "2026-10-15T11:30:48.805Z"
+    },
+    {
+      "id": "w_cash_usr_1792064435398",
+      "user_id": "usr_1792064435398",
+      "name": "Cash",
+      "balance": 1500000,
+      "color": "#F97316",
+      "icon": "wallet",
+      "is_default": true,
+      "created_at": "2026-10-15T11:40:35.399Z",
+      "updated_at": "2026-10-15T11:40:35.399Z"
+    },
+    {
+      "id": "w_bca_usr_1792064435398",
+      "user_id": "usr_1792064435398",
+      "name": "BCA",
+      "balance": 5000000,
+      "color": "#3B82F6",
+      "icon": "credit-card",
+      "is_default": false,
+      "created_at": "2026-10-15T11:40:35.399Z",
+      "updated_at": "2026-10-15T11:40:35.399Z"
+    },
+    {
+      "id": "w_gopay_usr_1792064435398",
+      "user_id": "usr_1792064435398",
+      "name": "GoPay",
+      "balance": 350000,
+      "color": "#10B981",
+      "icon": "smartphone",
+      "is_default": false,
+      "created_at": "2026-10-15T11:40:35.399Z",
+      "updated_at": "2026-10-15T11:40:35.399Z"
+    },
+    {
+      "id": "w_cash_usr_1792064694735",
+      "user_id": "usr_1792064694735",
+      "name": "Cash",
+      "balance": 1500000,
+      "color": "#F97316",
+      "icon": "wallet",
+      "is_default": true,
+      "created_at": "2026-10-15T11:44:54.735Z",
+      "updated_at": "2026-10-15T11:44:54.735Z"
+    },
+    {
+      "id": "w_bca_usr_1792064694735",
+      "user_id": "usr_1792064694735",
+      "name": "BCA",
+      "balance": 5000000,
+      "color": "#3B82F6",
+      "icon": "credit-card",
+      "is_default": false,
+      "created_at": "2026-10-15T11:44:54.735Z",
+      "updated_at": "2026-10-15T11:44:54.735Z"
+    },
+    {
+      "id": "w_gopay_usr_1792064694735",
+      "user_id": "usr_1792064694735",
+      "name": "GoPay",
+      "balance": 350000,
+      "color": "#10B981",
+      "icon": "smartphone",
+      "is_default": false,
+      "created_at": "2026-10-15T11:44:54.735Z",
+      "updated_at": "2026-10-15T11:44:54.735Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat_makanan",
+      "user_id": "usr_budi_01",
+      "name": "Makanan",
+      "emoji": "🍜",
+      "type": "expense",
+      "color": "#F97316",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_transport",
+      "user_id": "usr_budi_01",
+      "name": "Transport",
+      "emoji": "🚗",
+      "type": "expense",
+      "color": "#3B82F6",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_tagihan",
+      "user_id": "usr_budi_01",
+      "name": "Tagihan",
+      "emoji": "🏠",
+      "type": "expense",
+      "color": "#EF4444",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_belanja",
+      "user_id": "usr_budi_01",
+      "name": "Belanja",
+      "emoji": "👕",
+      "type": "expense",
+      "color": "#8B5CF6",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_gaji",
+      "user_id": "usr_budi_01",
+      "name": "Gaji",
+      "emoji": "💰",
+      "type": "income",
+      "color": "#10B981",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_freelance",
+      "user_id": "usr_budi_01",
+      "name": "Freelance",
+      "emoji": "💻",
+      "type": "income",
+      "color": "#06B6D4",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_mkn_usr_1792063566123",
+      "user_id": "usr_1792063566123",
+      "name": "Makanan",
+      "emoji": "🍜",
+      "type": "expense",
+      "color": "#F97316",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_trp_usr_1792063566123",
+      "user_id": "usr_1792063566123",
+      "name": "Transport",
+      "emoji": "🚗",
+      "type": "expense",
+      "color": "#3B82F6",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_tag_usr_1792063566123",
+      "user_id": "usr_1792063566123",
+      "name": "Tagihan",
+      "emoji": "🏠",
+      "type": "expense",
+      "color": "#EF4444",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_blj_usr_1792063566123",
+      "user_id": "usr_1792063566123",
+      "name": "Belanja",
+      "emoji": "👕",
+      "type": "expense",
+      "color": "#8B5CF6",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_gji_usr_1792063566123",
+      "user_id": "usr_1792063566123",
+      "name": "Gaji",
+      "emoji": "💰",
+      "type": "income",
+      "color": "#10B981",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_mkn_usr_1792063848805",
+      "user_id": "usr_1792063848805",
+      "name": "Makanan",
+      "emoji": "🍜",
+      "type": "expense",
+      "color": "#F97316",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_trp_usr_1792063848805",
+      "user_id": "usr_1792063848805",
+      "name": "Transport",
+      "emoji": "🚗",
+      "type": "expense",
+      "color": "#3B82F6",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_tag_usr_1792063848805",
+      "user_id": "usr_1792063848805",
+      "name": "Tagihan",
+      "emoji": "🏠",
+      "type": "expense",
+      "color": "#EF4444",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_blj_usr_1792063848805",
+      "user_id": "usr_1792063848805",
+      "name": "Belanja",
+      "emoji": "👕",
+      "type": "expense",
+      "color": "#8B5CF6",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_gji_usr_1792063848805",
+      "user_id": "usr_1792063848805",
+      "name": "Gaji",
+      "emoji": "💰",
+      "type": "income",
+      "color": "#10B981",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_mkn_usr_1792064435398",
+      "user_id": "usr_1792064435398",
+      "name": "Makanan",
+      "emoji": "🍜",
+      "type": "expense",
+      "color": "#F97316",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_trp_usr_1792064435398",
+      "user_id": "usr_1792064435398",
+      "name": "Transport",
+      "emoji": "🚗",
+      "type": "expense",
+      "color": "#3B82F6",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_tag_usr_1792064435398",
+      "user_id": "usr_1792064435398",
+      "name": "Tagihan",
+      "emoji": "🏠",
+      "type": "expense",
+      "color": "#EF4444",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_blj_usr_1792064435398",
+      "user_id": "usr_1792064435398",
+      "name": "Belanja",
+      "emoji": "👕",
+      "type": "expense",
+      "color": "#8B5CF6",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_gji_usr_1792064435398",
+      "user_id": "usr_1792064435398",
+      "name": "Gaji",
+      "emoji": "💰",
+      "type": "income",
+      "color": "#10B981",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_mkn_usr_1792064694735",
+      "user_id": "usr_1792064694735",
+      "name": "Makanan",
+      "emoji": "🍜",
+      "type": "expense",
+      "color": "#F97316",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_trp_usr_1792064694735",
+      "user_id": "usr_1792064694735",
+      "name": "Transport",
+      "emoji": "🚗",
+      "type": "expense",
+      "color": "#3B82F6",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_tag_usr_1792064694735",
+      "user_id": "usr_1792064694735",
+      "name": "Tagihan",
+      "emoji": "🏠",
+      "type": "expense",
+      "color": "#EF4444",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_blj_usr_1792064694735",
+      "user_id": "usr_1792064694735",
+      "name": "Belanja",
+      "emoji": "👕",
+      "type": "expense",
+      "color": "#8B5CF6",
+      "is_default": true,
+      "created_at": ""
+    },
+    {
+      "id": "cat_gji_usr_1792064694735",
+      "user_id": "usr_1792064694735",
+      "name": "Gaji",
+      "emoji": "💰",
+      "type": "income",
+      "color": "#10B981",
+      "is_default": true,
+      "created_at": ""
+    }
+  ],
+  "transactions": [
+    {
+      "user_id": "usr_budi_01",
+      "wallet_id": "w_cash",
+      "category_id": "cat_makanan",
+      "type": "expense",
+      "amount": 15000,
+      "description": "makan 15000",
+      "source": "telegram_text",
+      "transaction_time": "2026-10-14T16:35:17.579Z",
+      "has_receipt_items": false,
+      "id": "tx_1791995717582_603",
+      "created_at": "2026-10-14T16:35:17.582Z"
+    },
+    {
+      "user_id": "usr_budi_01",
+      "wallet_id": "w_cash",
+      "category_id": "cat_makanan",
+      "type": "expense",
+      "amount": 20000,
+      "description": "makan 20000",
+      "source": "telegram_text",
+      "transaction_time": "2026-10-14T16:28:21.354Z",
+      "has_receipt_items": false,
+      "id": "tx_1791995301359_335",
+      "created_at": "2026-10-14T16:28:21.359Z"
+    },
+    {
+      "user_id": "usr_budi_01",
+      "wallet_id": "w_bca",
+      "category_id": "cat_gaji",
+      "type": "income",
+      "amount": 5000000,
+      "description": "gajian 5jt",
+      "source": "telegram_text",
+      "transaction_time": "2026-10-14T15:50:37.814Z",
+      "has_receipt_items": false,
+      "id": "tx_1791993037816_346",
+      "created_at": "2026-10-14T15:50:37.816Z"
+    },
+    {
+      "user_id": "usr_budi_01",
+      "wallet_id": "w_cash",
+      "category_id": "cat_makanan",
+      "type": "expense",
+      "amount": 25000,
+      "description": "makan 25000",
+      "source": "telegram_text",
+      "transaction_time": "2026-10-14T15:34:01.355Z",
+      "has_receipt_items": false,
+      "id": "tx_1791992041355_116",
+      "created_at": "2026-10-14T15:34:01.355Z"
+    },
+    {
+      "id": "tx_init_1",
+      "user_id": "usr_budi_01",
+      "wallet_id": "w_cash",
+      "category_id": "cat_makanan",
+      "type": "expense",
+      "amount": 25000,
+      "description": "Nasi Goreng Spesial",
+      "source": "web",
+      "transaction_time": "2026-10-14T13:30:53.260Z",
+      "created_at": "2026-10-14T13:30:53.260Z",
+      "has_receipt_items": false
+    },
+    {
+      "id": "tx_init_2",
+      "user_id": "usr_budi_01",
+      "wallet_id": "w_bca",
+      "category_id": "cat_gaji",
+      "type": "income",
+      "amount": 8500000,
+      "description": "Gaji Bulanan",
+      "source": "web",
+      "transaction_time": "2026-10-11T15:30:53.260Z",
+      "created_at": "2026-10-11T15:30:53.260Z",
+      "has_receipt_items": false
+    }
+  ],
+  "budgets": [
+    {
+      "id": "b_makanan",
+      "user_id": "usr_budi_01",
+      "category_id": "cat_makanan",
+      "month": "2026-10-01",
+      "amount": 1500000,
+      "alert_80_sent": false,
+      "alert_100_sent": false,
+      "created_at": "2026-10-14T15:30:53.259Z",
+      "updated_at": "2026-10-14T16:35:17.582Z",
+      "spent_amount": 900000
+    },
+    {
+      "id": "b_belanja",
+      "user_id": "usr_budi_01",
+      "category_id": "cat_belanja",
+      "month": "2026-10-01",
+      "amount": 1000000,
+      "alert_80_sent": false,
+      "alert_100_sent": false,
+      "created_at": "2026-10-14T15:30:53.259Z",
+      "updated_at": "2026-10-14T15:30:53.259Z",
+      "spent_amount": 450000
+    },
+    {
+      "id": "b_tagihan",
+      "user_id": "usr_budi_01",
+      "category_id": "cat_tagihan",
+      "month": "2026-10-01",
+      "amount": 800000,
+      "alert_80_sent": false,
+      "alert_100_sent": false,
+      "created_at": "2026-10-14T15:30:53.259Z",
+      "updated_at": "2026-10-14T15:30:53.259Z",
+      "spent_amount": 550000
+    }
+  ],
+  "telegramUpdates": [
+    {
+      "update_id": 2001,
+      "chat_id": 999888,
+      "text": "Pengeluaran makan 25000 dari cash",
+      "processed_at": "2026-10-14T15:32:53.609Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 2002,
+      "chat_id": 555123,
+      "text": "/link 081234567890",
+      "processed_at": "2026-10-14T15:33:25.948Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 2003,
+      "chat_id": 555123,
+      "text": "Pengeluaran makan 25000 dari cash",
+      "processed_at": "2026-10-14T15:33:53.124Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 2005,
+      "chat_id": 555123,
+      "text": "uang",
+      "processed_at": "2026-10-14T15:43:16.664Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 2006,
+      "chat_id": 555123,
+      "text": "/saldo",
+      "processed_at": "2026-10-14T15:44:09.509Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 2007,
+      "chat_id": 555123,
+      "text": "/saldo",
+      "processed_at": "2026-10-14T15:50:09.863Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 2008,
+      "chat_id": 555123,
+      "text": "gajian 5jt ke bca",
+      "processed_at": "2026-10-14T15:50:29.672Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 4001,
+      "chat_id": 555123,
+      "text": "Halo bot",
+      "processed_at": "2026-10-14T16:28:11.594Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 4002,
+      "chat_id": 555123,
+      "text": "makan siang",
+      "processed_at": "2026-10-14T16:28:11.902Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 4003,
+      "chat_id": 555123,
+      "text": "isi bensin",
+      "processed_at": "2026-10-14T16:28:11.978Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 4004,
+      "chat_id": 555123,
+      "text": "beli baju",
+      "processed_at": "2026-10-14T16:28:12.059Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 4005,
+      "chat_id": 555123,
+      "text": "tips hemat dong",
+      "processed_at": "2026-10-14T16:28:12.409Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 4006,
+      "chat_id": 555123,
+      "text": "keuanganku gimana",
+      "processed_at": "2026-10-14T16:28:12.704Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 4007,
+      "chat_id": 555123,
+      "text": "/tips",
+      "processed_at": "2026-10-14T16:28:12.757Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 4008,
+      "chat_id": 555123,
+      "text": "Pengeluaran makan 20000 dari cash",
+      "processed_at": "2026-10-14T16:28:12.812Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 5001,
+      "chat_id": 555123,
+      "text": "Halo bot",
+      "processed_at": "2026-10-14T16:35:07.259Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 5002,
+      "chat_id": 555123,
+      "text": "makan siang",
+      "processed_at": "2026-10-14T16:35:07.591Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 5003,
+      "chat_id": 555123,
+      "text": "isi bensin",
+      "processed_at": "2026-10-14T16:35:08.082Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 5004,
+      "chat_id": 555123,
+      "text": "beli baju",
+      "processed_at": "2026-10-14T16:35:08.191Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 5005,
+      "chat_id": 555123,
+      "text": "tips hemat dong",
+      "processed_at": "2026-10-14T16:35:08.768Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 5006,
+      "chat_id": 555123,
+      "text": "keuanganku gimana",
+      "processed_at": "2026-10-14T16:35:08.866Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 5007,
+      "chat_id": 555123,
+      "text": "/tips",
+      "processed_at": "2026-10-14T16:35:08.959Z",
+      "status": "processed"
+    },
+    {
+      "update_id": 5008,
+      "chat_id": 555123,
+      "text": "Pengeluaran makan 15000 dari cash",
+      "processed_at": "2026-10-14T16:35:09.186Z",
+      "status": "processed"
+    }
+  ]
+}
