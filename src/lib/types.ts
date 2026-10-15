@@ -1,5 +1,7 @@
 export type PlanType = 'starter' | 'pro';
 
+export type UserApprovalStatus = 'pending' | 'approved' | 'rejected';
+
 export type TransactionType = 'expense' | 'income' | 'transfer';
 
 export type TransactionSource = 'web' | 'telegram_text' | 'telegram_photo' | 'telegram_voice';
@@ -11,6 +13,9 @@ export interface Profile {
   avatar_url?: string;
   phone_number?: string;
   phone_verified: boolean;
+  approval_status?: UserApprovalStatus;
+  approval_notes?: string;
+  approved_at?: string;
   telegram_chat_id?: number | null;
   telegram_username?: string | null;
   telegram_bot_token?: string | null;

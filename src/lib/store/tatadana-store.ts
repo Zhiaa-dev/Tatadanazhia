@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { Profile, Wallet, Category, Transaction, Budget, PlanType } from '@/lib/types';
+import { Profile, Wallet, Category, Transaction, Budget, PlanType, UserApprovalStatus } from '@/lib/types';
 
 export interface TelegramUpdateRecord {
   update_id: number;
@@ -29,6 +29,8 @@ function getDefaultData(): StoreData {
     email: 'budi.santoso@gmail.com',
     phone_number: '+6281234567890',
     phone_verified: true,
+    approval_status: 'approved',
+    approved_at: new Date().toISOString(),
     telegram_chat_id: null, // Initialized unlinked, will be linked via /link or Settings
     telegram_username: null,
     telegram_bot_status: 'disconnected',
@@ -287,6 +289,9 @@ class TataDanaStore {
       if (payload.avatar_url) {
         profile.avatar_url = payload.avatar_url;
       }
+      if (!profile.approval_status) {
+        profile.approval_status = 'approved';
+      }
       profile.last_login_at = new Date().toISOString();
       profile.updated_at = new Date().toISOString();
       this.persist();
@@ -302,6 +307,9 @@ class TataDanaStore {
         .replace(/[._-]/g, ' ')
         .replace(/\b\w/g, (c) => c.toUpperCase());
 
+    const isAdmin = cleanEmail === 'youknowzhia@gmail.com';
+    const approvalStatus: UserApprovalStatus = isAdmin || payload.isLogin ? 'approved' : 'pending';
+
     const newProfile: Profile = {
       id: newUserId,
       full_name: resolvedName,
@@ -309,13 +317,15 @@ class TataDanaStore {
       avatar_url: payload.avatar_url,
       phone_number: payload.phone_number?.trim() || '+62812' + Math.floor(10000000 + Math.random() * 90000000),
       phone_verified: true,
+      approval_status: approvalStatus,
+      approved_at: approvalStatus === 'approved' ? new Date().toISOString() : undefined,
       telegram_chat_id: null,
       telegram_username: null,
       telegram_bot_status: 'disconnected',
       plan: payload.plan || 'starter',
       default_currency: 'IDR',
       default_wallet_id: `w_cash_${newUserId}`,
-      is_admin: false,
+      is_admin: isAdmin,
       reminder_enabled: true,
       reminder_frequency: 1,
       reminder_time_1: '12:00:00',
@@ -536,6 +546,24 @@ class TataDanaStore {
       wallet: this.data.wallets.find((w) => w.id === t.wallet_id),
       category: this.data.categories.find((c) => c.id === t.category_id),
     }));
+  }
+
+  // Update user approval status
+  public updateUserApprovalStatus(userId: string, status: UserApprovalStatus, notes?: string): Profile | null {
+    this.ensureFresh();
+    const profile = this.data.profiles.find((p) => p.id === userId || (p.email && p.email.toLowerCase() === userId.toLowerCase()));
+    if (!profile) return null;
+
+    profile.approval_status = status;
+    if (notes !== undefined) {
+      profile.approval_notes = notes;
+    }
+    if (status === 'approved') {
+      profile.approved_at = new Date().toISOString();
+    }
+    profile.updated_at = new Date().toISOString();
+    this.persist();
+    return profile;
   }
 
   // Reset/seed for test execution

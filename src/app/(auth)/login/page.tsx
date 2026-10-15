@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Send, Sparkles, Lock, Mail, ArrowRight, User, CheckCircle2, UserCheck } from 'lucide-react';
+import { Send, Sparkles, Lock, Mail, ArrowRight, User, CheckCircle2, UserCheck, Clock, AlertTriangle, RefreshCw } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { Badge } from '@/components/ui/Badge';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -13,12 +14,15 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  const [detectedUser, setDetectedUser] = useState<{ name: string; email: string } | null>(null);
+  const [detectedUser, setDetectedUser] = useState<{ name: string; email: string; approval_status?: string } | null>(null);
+  const [isPending, setIsPending] = useState(false);
+  const [isCheckingStatus, setIsCheckingStatus] = useState(false);
 
   // Auto-detect registered user when email is typed
   useEffect(() => {
     if (!email.trim() || !email.includes('@')) {
       setDetectedUser(null);
+      setIsPending(false);
       return;
     }
 
@@ -31,8 +35,13 @@ export default function LoginPage() {
         const allUsers = JSON.parse(allUsersStr);
         const found = allUsers.find((u: any) => u.email && u.email.toLowerCase() === clean);
         if (found) {
-          setDetectedUser({ name: found.full_name, email: found.email });
+          setDetectedUser({ name: found.full_name, email: found.email, approval_status: found.approval_status });
           if (!fullName) setFullName(found.full_name);
+          if (found.approval_status === 'pending' && clean !== 'youknowzhia@gmail.com') {
+            setIsPending(true);
+          } else {
+            setIsPending(false);
+          }
           return;
         }
       }
@@ -46,6 +55,7 @@ export default function LoginPage() {
       if (!fullName) setFullName(lastRegName);
     } else {
       setDetectedUser(null);
+      setIsPending(false);
     }
   }, [email]);
 
@@ -61,8 +71,59 @@ export default function LoginPage() {
         return;
       }
 
-      // 1. Sinkronisasi data login ke Backend Store TataDana
+      const clean = email.trim().toLowerCase();
+      const isAdmin = clean === 'youknowzhia@gmail.com';
+
+      // 1. Cek approval status dari API
       let userProfile: any = null;
+      let approvalStatus: 'pending' | 'approved' | 'rejected' = isAdmin ? 'approved' : 'approved';
+
+      try {
+        const res = await fetch(`/api/users/sync?email=${encodeURIComponent(clean)}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.ok && data.profile) {
+            userProfile = data.profile;
+            if (data.profile.approval_status) {
+              approvalStatus = data.profile.approval_status;
+            }
+          }
+        }
+      } catch (syncErr) {
+        console.warn('API sync status check fallback:', syncErr);
+      }
+
+      // Cek juga dari localStorage jika baru didaftarkan
+      try {
+        const allUsersStr = localStorage.getItem('tatadana_all_users');
+        if (allUsersStr) {
+          const allUsers = JSON.parse(allUsersStr);
+          const found = allUsers.find((u: any) => u.email && u.email.toLowerCase() === clean);
+          if (found && found.approval_status) {
+            approvalStatus = found.approval_status;
+          }
+        }
+      } catch (e) {}
+
+      // Jika akun masih Pending dan bukan admin, tolak login dengan pesan jelas
+      if (!isAdmin && approvalStatus === 'pending') {
+        setIsPending(true);
+        setError('Akun Anda masih dalam status Menunggu Persetujuan (Approval) dari Administrator. Silakan tunggu hingga admin menyetujui akun Anda.');
+        setIsLoading(false);
+        return;
+      }
+
+      // Jika akun Ditolak oleh admin
+      if (!isAdmin && approvalStatus === 'rejected') {
+        setIsPending(false);
+        setError('Pendaftaran akun Anda ditolak oleh Administrator. Silakan hubungi admin untuk informasi lebih lanjut.');
+        setIsLoading(false);
+        return;
+      }
+
+      setIsPending(false);
+
+      // 2. Sinkronisasi data login ke Backend Store TataDana
       try {
         const res = await fetch('/api/users/sync', {
           method: 'POST',
@@ -91,7 +152,7 @@ export default function LoginPage() {
 
       const resolvedPhone = userProfile?.phone_number || sessionStorage.getItem('tatadana_reg_phone') || '+6281234567890';
 
-      // 2. Simpan session user lokal & storage agar dashboard user menampilkan nama yang sesuai
+      // 3. Simpan session user lokal & storage agar dashboard user menampilkan nama yang sesuai
       localStorage.setItem('tatadana_user_id', userId);
       localStorage.setItem('tatadana_user', email);
       localStorage.setItem('tatadana_reg_name', resolvedName);
@@ -105,7 +166,8 @@ export default function LoginPage() {
             full_name: resolvedName,
             email,
             phone_number: resolvedPhone,
-            plan: userProfile?.plan || 'pro',
+            plan: userProfile?.plan || 'starter',
+            approval_status: 'approved',
           }
         )
       );
@@ -116,7 +178,7 @@ export default function LoginPage() {
       sessionStorage.setItem('tatadana_reg_email', email);
       sessionStorage.setItem('tatadana_reg_phone', resolvedPhone);
 
-      // 3. Simpan juga ke cache daftar semua user untuk Admin Panel instant sync
+      // 4. Simpan juga ke cache daftar semua user untuk Admin Panel instant sync
       try {
         const existingUsersStr = localStorage.getItem('tatadana_all_users') || '[]';
         const existingUsers = JSON.parse(existingUsersStr);
@@ -126,7 +188,8 @@ export default function LoginPage() {
             full_name: resolvedName,
             email,
             phone_number: resolvedPhone,
-            plan: userProfile?.plan || 'pro',
+            plan: userProfile?.plan || 'starter',
+            approval_status: 'approved',
             telegram_connected: true,
             monthly_tx_count: userProfile?.monthly_transaction_count || 12,
             total_balance: userProfile?.total_balance || 1450000,
@@ -140,7 +203,7 @@ export default function LoginPage() {
         console.error(e);
       }
 
-      // 4. Trigger event reaktif ke seluruh aplikasi
+      // 5. Trigger event reaktif ke seluruh aplikasi
       if (typeof window !== 'undefined') {
         window.dispatchEvent(new CustomEvent('tatadana_profile_updated'));
         window.dispatchEvent(new CustomEvent('tatadana_users_updated'));
@@ -151,6 +214,54 @@ export default function LoginPage() {
       setError(err.message || 'Gagal masuk akun');
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleCheckApprovalFromLogin = async () => {
+    if (!email.trim()) return;
+    setIsCheckingStatus(true);
+    const clean = email.trim().toLowerCase();
+
+    try {
+      let currentStatus: 'pending' | 'approved' | 'rejected' = 'pending';
+      let profileFromApi: any = null;
+
+      try {
+        const res = await fetch(`/api/users/sync?email=${encodeURIComponent(clean)}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.ok && data.profile) {
+            profileFromApi = data.profile;
+            if (data.profile.approval_status) {
+              currentStatus = data.profile.approval_status;
+            }
+          }
+        }
+      } catch (e) {}
+
+      try {
+        const allUsersStr = localStorage.getItem('tatadana_all_users');
+        if (allUsersStr) {
+          const allUsers = JSON.parse(allUsersStr);
+          const found = allUsers.find((u: any) => u.email && u.email.toLowerCase() === clean);
+          if (found && found.approval_status) {
+            currentStatus = found.approval_status;
+          }
+        }
+      } catch (e) {}
+
+      if (currentStatus === 'approved') {
+        setIsPending(false);
+        setError('');
+        alert('🎉 Akun Anda telah disetujui oleh Administrator! Anda dapat langsung klik tombol "Masuk ke Dashboard".');
+      } else if (currentStatus === 'rejected') {
+        setIsPending(false);
+        setError('Pendaftaran akun Anda ditolak oleh Administrator.');
+      } else {
+        alert('Akun Anda masih dalam status Menunggu Persetujuan admin. Silakan tunggu beberapa saat lagi.');
+      }
+    } finally {
+      setIsCheckingStatus(false);
     }
   };
 
